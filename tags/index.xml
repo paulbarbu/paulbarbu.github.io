@@ -6,9 +6,55 @@
     <description>Recent content in Tags on Barbu Paul - Gheorghe</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Thu, 24 Oct 2019 21:23:00 +0300</lastBuildDate>
     
 	<atom:link href="http://paulbarbu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>awk</title>
+      <link>http://paulbarbu.github.io/tags/awk/</link>
+      <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
+      
+      <guid>http://paulbarbu.github.io/tags/awk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>http://paulbarbu.github.io/tags/linux/</link>
+      <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
+      
+      <guid>http://paulbarbu.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lsof</title>
+      <link>http://paulbarbu.github.io/tags/lsof/</link>
+      <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
+      
+      <guid>http://paulbarbu.github.io/tags/lsof/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tail</title>
+      <link>http://paulbarbu.github.io/tags/tail/</link>
+      <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
+      
+      <guid>http://paulbarbu.github.io/tags/tail/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tcp</title>
+      <link>http://paulbarbu.github.io/tags/tcp/</link>
+      <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
+      
+      <guid>http://paulbarbu.github.io/tags/tcp/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
