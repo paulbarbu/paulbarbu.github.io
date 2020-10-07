@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Barbu Paul - Gheorghe</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Oct 2019 21:23:00 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2020 20:53:01 +0300</lastBuildDate>
     
 	<atom:link href="http://paulbarbu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>diy</title>
+      <link>http://paulbarbu.github.io/tags/diy/</link>
+      <pubDate>Tue, 06 Oct 2020 20:53:01 +0300</pubDate>
+      
+      <guid>http://paulbarbu.github.io/tags/diy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>electronics</title>
+      <link>http://paulbarbu.github.io/tags/electronics/</link>
+      <pubDate>Tue, 06 Oct 2020 20:53:01 +0300</pubDate>
+      
+      <guid>http://paulbarbu.github.io/tags/electronics/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>awk</title>

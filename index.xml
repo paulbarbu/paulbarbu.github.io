@@ -6,10 +6,20 @@
     <description>Recent content in Welcome on Barbu Paul - Gheorghe</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Oct 2019 21:23:00 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2020 20:53:01 +0300</lastBuildDate>
     
 	<atom:link href="http://paulbarbu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Testing a 13 Pin Towing Socket without a dedicated tester</title>
+      <link>http://paulbarbu.github.io/13-pin-socket-iso11446/</link>
+      <pubDate>Tue, 06 Oct 2020 20:53:01 +0300</pubDate>
+      
+      <guid>http://paulbarbu.github.io/13-pin-socket-iso11446/</guid>
+      <description>Introduction Recently I installed a 13-pin socket 1 on my car and I wanted to make sure all its functions are working correctly.
+A 13 pin socket along basic brake, tail and indicator lights provides (as per the ISO 11446 standard) the rear fog lights, reverse lights, a permanent 12V connection and a switched 12V connection (when the engine is running or just the power being switched on in the car).</description>
+    </item>
     
     <item>
       <title>Linux TCP Socket States, the Listen Backlog and SYN cookies</title>
