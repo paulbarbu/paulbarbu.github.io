@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Welcome on Barbu Paul - Gheorghe</title>
@@ -29,8 +29,8 @@ $ lsof -a -i TCP:5000 -p 3921 | tail -n +2 | awk &amp;#39;BEGIN{listen=0;estab=0
       
       <guid>http://paulbarbu.github.io/about/</guid>
       <description>Online you can find me on:
- GitHub: https://github.com/paulbarbu, this is the place where you can find all the open-source code I have written. I usually like to open-source my side-projects since I started learning to program by being part of an online community based on an open-source book, to which I contributed myself eventually (https://github.com/yet-another-project).
- LinkedIn: https://www.linkedin.com/in/paul-gheorghe-barbu/, this is, if you want, my CV. It should be up-to-date at all times.</description>
+GitHub: https://github.com/paulbarbu, this is the place where you can find all the open-source code I have written. I usually like to open-source my side-projects since I started learning to program by being part of an online community based on an open-source book, to which I contributed myself eventually (https://github.com/yet-another-project).
+LinkedIn: https://www.linkedin.com/in/paul-gheorghe-barbu/, this is, if you want, my CV. It should be up-to-date at all times.</description>
     </item>
     
   </channel>
