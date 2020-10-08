@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>awk on Barbu Paul - Gheorghe</title>
-    <link>http://paulbarbu.github.io/tags/awk/</link>
+    <link>https://paulbarbu.github.io/tags/awk/</link>
     <description>Recent content in awk on Barbu Paul - Gheorghe</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 24 Oct 2019 21:23:00 +0300</lastBuildDate>
     
-	<atom:link href="http://paulbarbu.github.io/tags/awk/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://paulbarbu.github.io/tags/awk/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Linux TCP Socket States, the Listen Backlog and SYN cookies</title>
-      <link>http://paulbarbu.github.io/ss-listen-backlog-syn-cookies/</link>
+      <link>https://paulbarbu.github.io/ss-listen-backlog-syn-cookies/</link>
       <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
       
-      <guid>http://paulbarbu.github.io/ss-listen-backlog-syn-cookies/</guid>
+      <guid>https://paulbarbu.github.io/ss-listen-backlog-syn-cookies/</guid>
       <description>For a TLDR about the Listen Backlog and SYN cookies: Jump to the Listen Backlog and SYN cookies explanation
 Whether you want to investigate a half-opened/half-closed connection issue in Linux or you want to know if your application leaks sockets, then this command might be helpful:
 $ lsof -a -i TCP:5000 -p 3921 | tail -n +2 | awk &amp;#39;BEGIN{listen=0;estab=0;other=0} /ESTABLISHED/{estab+=1} /LISTEN/{listen+=1} !/ESTABLISHED|LISTEN/{other+=1; print} END{printf(&amp;#34;established=%s listen=%s other=%s\n&amp;#34;, estab, listen, other)}&amp;#39; That command is pretty long, so from left to right we&amp;rsquo;re piping the output of lsof into tail, then awk.</description>

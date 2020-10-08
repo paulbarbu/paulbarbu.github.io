@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="stylesheet" href="http://paulbarbu.github.io/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://paulbarbu.github.io/css/bootstrap.min.css">
   
   
   <title>Linux TCP Socket States, the Listen Backlog and SYN cookies | Barbu Paul - Gheorghe</title>
@@ -156,19 +156,19 @@ audio {
   <i data-feather="tag"></i>
   
   
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="http://paulbarbu.github.io/tags/lsof">lsof</a>
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://paulbarbu.github.io/tags/lsof">lsof</a>
   
   
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="http://paulbarbu.github.io/tags/awk">awk</a>
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://paulbarbu.github.io/tags/awk">awk</a>
   
   
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="http://paulbarbu.github.io/tags/tail">tail</a>
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://paulbarbu.github.io/tags/tail">tail</a>
   
   
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="http://paulbarbu.github.io/tags/tcp">tcp</a>
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://paulbarbu.github.io/tags/tcp">tcp</a>
   
   
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="http://paulbarbu.github.io/tags/linux">linux</a>
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://paulbarbu.github.io/tags/linux">linux</a>
   
 
 <br><br>
@@ -243,7 +243,7 @@ Then the following blocks are responsible for actually incrementing the counter 
 <li><code>lsof -F</code> for parsing the output by other programs;</li>
 <li>the <code>awk</code> script could be improved to count all the possible sockets states without much dependence on the socket state exactly appearing only on the last column of the <code>lsof</code> output</li>
 </ul>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><a name="explanation"></a></p>
 <h3 id="interpreting-the-output-and-investigating-the-half-openedclosed-situation">Interpreting the output and investigating the half-opened/closed situation</h3>
 <p>If you run this command for both the server and the client, then you could go reasoning about half-opened or closed connections.
 For example if you see that you have 5000 established connections on the client and 1000 established connections on the server, that means that some of the connections are half-opened.</p>
@@ -311,7 +311,7 @@ And you&rsquo;d better leave SYN cookies enabled since that can cause you downti
   </div>
 </footer>
 
-    <script src="http://paulbarbu.github.io/js/feather.min.js"></script>
+    <script src="https://paulbarbu.github.io/js/feather.min.js"></script>
 <script>
   feather.replace()
 </script>

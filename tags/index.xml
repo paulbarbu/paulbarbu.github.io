@@ -2,75 +2,75 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Barbu Paul - Gheorghe</title>
-    <link>http://paulbarbu.github.io/tags/</link>
+    <link>https://paulbarbu.github.io/tags/</link>
     <description>Recent content in Tags on Barbu Paul - Gheorghe</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 06 Oct 2020 20:53:01 +0300</lastBuildDate>
     
-	<atom:link href="http://paulbarbu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://paulbarbu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>diy</title>
-      <link>http://paulbarbu.github.io/tags/diy/</link>
+      <link>https://paulbarbu.github.io/tags/diy/</link>
       <pubDate>Tue, 06 Oct 2020 20:53:01 +0300</pubDate>
       
-      <guid>http://paulbarbu.github.io/tags/diy/</guid>
+      <guid>https://paulbarbu.github.io/tags/diy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>electronics</title>
-      <link>http://paulbarbu.github.io/tags/electronics/</link>
+      <link>https://paulbarbu.github.io/tags/electronics/</link>
       <pubDate>Tue, 06 Oct 2020 20:53:01 +0300</pubDate>
       
-      <guid>http://paulbarbu.github.io/tags/electronics/</guid>
+      <guid>https://paulbarbu.github.io/tags/electronics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>awk</title>
-      <link>http://paulbarbu.github.io/tags/awk/</link>
+      <link>https://paulbarbu.github.io/tags/awk/</link>
       <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
       
-      <guid>http://paulbarbu.github.io/tags/awk/</guid>
+      <guid>https://paulbarbu.github.io/tags/awk/</guid>
       <description></description>
     </item>
     
     <item>
       <title>linux</title>
-      <link>http://paulbarbu.github.io/tags/linux/</link>
+      <link>https://paulbarbu.github.io/tags/linux/</link>
       <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
       
-      <guid>http://paulbarbu.github.io/tags/linux/</guid>
+      <guid>https://paulbarbu.github.io/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>lsof</title>
-      <link>http://paulbarbu.github.io/tags/lsof/</link>
+      <link>https://paulbarbu.github.io/tags/lsof/</link>
       <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
       
-      <guid>http://paulbarbu.github.io/tags/lsof/</guid>
+      <guid>https://paulbarbu.github.io/tags/lsof/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tail</title>
-      <link>http://paulbarbu.github.io/tags/tail/</link>
+      <link>https://paulbarbu.github.io/tags/tail/</link>
       <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
       
-      <guid>http://paulbarbu.github.io/tags/tail/</guid>
+      <guid>https://paulbarbu.github.io/tags/tail/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tcp</title>
-      <link>http://paulbarbu.github.io/tags/tcp/</link>
+      <link>https://paulbarbu.github.io/tags/tcp/</link>
       <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
       
-      <guid>http://paulbarbu.github.io/tags/tcp/</guid>
+      <guid>https://paulbarbu.github.io/tags/tcp/</guid>
       <description></description>
     </item>
     
