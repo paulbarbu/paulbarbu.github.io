@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Barbu Paul - Gheorghe</title>
+    <link>https://paulbarbu.github.io/categories/</link>
+    <description>Recent content in Categories on Barbu Paul - Gheorghe</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Oct 2020 20:53:01 +0300</lastBuildDate>
+    
+	<atom:link href="https://paulbarbu.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hardware</title>
+      <link>https://paulbarbu.github.io/categories/hardware/</link>
+      <pubDate>Tue, 06 Oct 2020 20:53:01 +0300</pubDate>
+      
+      <guid>https://paulbarbu.github.io/categories/hardware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software</title>
+      <link>https://paulbarbu.github.io/categories/software/</link>
+      <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
+      
+      <guid>https://paulbarbu.github.io/categories/software/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

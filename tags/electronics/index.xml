@@ -13,12 +13,11 @@
     
     <item>
       <title>Testing a 13 Pin Towing Socket without a dedicated tester</title>
-      <link>https://paulbarbu.github.io/13-pin-socket-iso11446/</link>
+      <link>https://paulbarbu.github.io/post/13-pin-socket-iso11446/</link>
       <pubDate>Tue, 06 Oct 2020 20:53:01 +0300</pubDate>
       
-      <guid>https://paulbarbu.github.io/13-pin-socket-iso11446/</guid>
-      <description>Introduction Recently I installed a 13-pin socket 1 on my car and I wanted to make sure all its functions are working correctly.
-A 13 pin socket along basic brake, tail and indicator lights provides (as per the ISO 11446 standard) the rear fog lights, reverse lights, a permanent 12V connection and a switched 12V connection (when the engine is running or just the power being switched on in the car).</description>
+      <guid>https://paulbarbu.github.io/post/13-pin-socket-iso11446/</guid>
+      <description>&lt;p&gt;How to test a 13 pin towing socket using a multimeter (i.e. without a caravan, trailer or a dedicated tester)&lt;/p&gt;</description>
     </item>
     
   </channel>
