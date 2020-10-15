@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://paulbarbu.github.io/post/</loc>
-    <lastmod>2020-10-06T20:53:01+03:00</lastmod>
+    <lastmod>2020-10-13T21:35:16+03:00</lastmod>
   </url>
   
   <url>
@@ -14,13 +14,38 @@
   
   <url>
     <loc>https://paulbarbu.github.io/</loc>
-    <lastmod>2020-10-06T20:53:01+03:00</lastmod>
+    <lastmod>2020-10-13T21:35:16+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://paulbarbu.github.io/categories/</loc>
-    <lastmod>2020-10-06T20:53:01+03:00</lastmod>
+    <lastmod>2020-10-13T21:35:16+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paulbarbu.github.io/tags/less/</loc>
+    <lastmod>2020-10-13T21:35:16+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paulbarbu.github.io/post/less-tricks/</loc>
+    <lastmod>2020-10-13T21:35:16+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paulbarbu.github.io/tags/linux/</loc>
+    <lastmod>2020-10-13T21:35:16+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paulbarbu.github.io/categories/software/</loc>
+    <lastmod>2020-10-13T21:35:16+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paulbarbu.github.io/tags/</loc>
+    <lastmod>2020-10-13T21:35:16+03:00</lastmod>
   </url>
   
   <url>
@@ -39,11 +64,6 @@
   </url>
   
   <url>
-    <loc>https://paulbarbu.github.io/tags/</loc>
-    <lastmod>2020-10-06T20:53:01+03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://paulbarbu.github.io/post/13-pin-socket-iso11446/</loc>
     <lastmod>2020-10-06T20:53:01+03:00</lastmod>
   </url>
@@ -54,22 +74,12 @@
   </url>
   
   <url>
-    <loc>https://paulbarbu.github.io/tags/linux/</loc>
-    <lastmod>2019-10-24T21:23:00+03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://paulbarbu.github.io/post/ss-listen-backlog-syn-cookies/</loc>
     <lastmod>2019-10-24T21:23:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://paulbarbu.github.io/tags/lsof/</loc>
-    <lastmod>2019-10-24T21:23:00+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paulbarbu.github.io/categories/software/</loc>
     <lastmod>2019-10-24T21:23:00+03:00</lastmod>
   </url>
   

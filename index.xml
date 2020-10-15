@@ -6,7 +6,7 @@
     <description>Recent content on Barbu Paul - Gheorghe</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Oct 2020 20:53:01 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2020 21:35:16 +0300</lastBuildDate>
     
 	<atom:link href="https://paulbarbu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -21,6 +21,15 @@
 Basically I&amp;rsquo;m a programmer, so the content of this blog will be technical in most cases.
 The blog&amp;rsquo;s main purpose is to serve as an archive of things I&amp;rsquo;ve encountered and found useful or things I struggled with for future reference or just random thoughts of mine that I feel the need to document and share on the web.
 Feel free to skim through my posts.</description>
+    </item>
+    
+    <item>
+      <title>Less Tricks For The Command Line</title>
+      <link>https://paulbarbu.github.io/post/less-tricks/</link>
+      <pubDate>Tue, 13 Oct 2020 21:35:16 +0300</pubDate>
+      
+      <guid>https://paulbarbu.github.io/post/less-tricks/</guid>
+      <description>&lt;p&gt;Less tricks for more productivity on the command line. Pun intended.&lt;/p&gt;</description>
     </item>
     
     <item>
