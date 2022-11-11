@@ -17,21 +17,16 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-13FB0RB5M0"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-151260211-1', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-13FB0RB5M0', { 'anonymize_ip': false });
 }
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-	
-
-
-  <link rel="canonical" href="https://paulbarbu.github.io/post/ss-listen-backlog-syn-cookies/" />
 
 </head>
 <body class="body">
@@ -53,7 +48,7 @@ if (!doNotTrack) {
 		<span class="menu__btn-title" tabindex="-1">Menu</span>
 	</button>
 	<ul class="menu__list">
-		<li class="menu__item">
+		<li class="menu__item menu__item--active">
 			<a class="menu__link" href="/post/">
 				
 				<span class="menu__text">Posts</span>
@@ -85,6 +80,7 @@ if (!doNotTrack) {
 	</span>
 </div></div>
 		</header>
+		
 <div class="post__toc toc">
 	<div class="toc__title">Page content</div>
 	<div class="toc__menu">
@@ -104,14 +100,13 @@ if (!doNotTrack) {
   </ul>
 </nav>
 	</div>
-</div>
-<div class="content post__content clearfix">
+</div><div class="content post__content clearfix">
 			<p>TCP socket debugging on GNU/Linux using a handful of basic tools: lsof, awk and tail.</p>
 <h3 id="counting-socket-states">Counting socket states</h3>
 <p>For a TLDR about the Listen Backlog and SYN cookies: <a href="#explanation">Jump to the Listen Backlog and SYN cookies explanation</a></p>
 <p>Whether you want to investigate a half-opened/half-closed connection issue in Linux or you want to know if your application
 leaks sockets, then this command might be helpful:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ lsof -a -i TCP:5000 -p <span style="color:#ae81ff">3921</span> | tail -n +2 | awk <span style="color:#e6db74">&#39;BEGIN{listen=0;estab=0;other=0} /ESTABLISHED/{estab+=1} /LISTEN/{listen+=1} !/ESTABLISHED|LISTEN/{other+=1; print} END{printf(&#34;established=%s listen=%s other=%s\n&#34;, estab, listen, other)}&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ lsof -a -i TCP:5000 -p <span style="color:#ae81ff">3921</span> | tail -n +2 | awk <span style="color:#e6db74">&#39;BEGIN{listen=0;estab=0;other=0} /ESTABLISHED/{estab+=1} /LISTEN/{listen+=1} !/ESTABLISHED|LISTEN/{other+=1; print} END{printf(&#34;established=%s listen=%s other=%s\n&#34;, estab, listen, other)}&#39;</span>
 </code></pre></div><p>That command is pretty long, so from left to right we&rsquo;re piping the output of <code>lsof</code> into <code>tail</code>, then <code>awk</code>.</p>
 <p>Now generally you don&rsquo;t want to copy and paste commands from the web into your terminal, that&rsquo;s just bad practice.
 Let&rsquo;s try to understand what&rsquo;s going on with that command.</p>
@@ -133,7 +128,7 @@ name of each column:</p>
 <pre><code>COMMAND     PID   TID TASKCMD          USER   FD      TYPE             DEVICE    SIZE/OFF       NODE NAME
 </code></pre><p>So instead of the standard <code>tail</code> behaviour of getting the <em>last</em> n lines of output, I get the last lines of the output starting with line <em>+n</em>.</p>
 <h3 id="awk">awk</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">awk <span style="color:#e6db74">&#39;BEGIN{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">awk <span style="color:#e6db74">&#39;BEGIN{
 </span><span style="color:#e6db74">    listen=0;
 </span><span style="color:#e6db74">    estab=0;
 </span><span style="color:#e6db74">    other=0
@@ -222,16 +217,16 @@ And you&rsquo;d better leave SYN cookies enabled since that can cause you downti
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p><a href="https://cr.yp.to/syncookies.html">https://cr.yp.to/syncookies.html</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://cr.yp.to/syncookies.html">https://cr.yp.to/syncookies.html</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p><a href="https://blog.stephencleary.com/2009/05/detection-of-half-open-dropped.html">https://blog.stephencleary.com/2009/05/detection-of-half-open-dropped.html</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://blog.stephencleary.com/2009/05/detection-of-half-open-dropped.html">https://blog.stephencleary.com/2009/05/detection-of-half-open-dropped.html</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:3" role="doc-endnote">
-<p><a href="http://veithen.io/2014/01/01/how-tcp-backlog-works-in-linux.html">http://veithen.io/2014/01/01/how-tcp-backlog-works-in-linux.html</a> <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="http://veithen.io/2014/01/01/how-tcp-backlog-works-in-linux.html">http://veithen.io/2014/01/01/how-tcp-backlog-works-in-linux.html</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:4" role="doc-endnote">
-<p><a href="https://www.evanjones.ca/tcp-stuck-connection-mystery.html">https://www.evanjones.ca/tcp-stuck-connection-mystery.html</a> <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://www.evanjones.ca/tcp-stuck-connection-mystery.html">https://www.evanjones.ca/tcp-stuck-connection-mystery.html</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
@@ -280,7 +275,7 @@ And you&rsquo;d better leave SYN cookies enabled since that can cause you downti
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2020 Barbu Paul - Gheorghe.
+			&copy; 2022 Barbu Paul - Gheorghe.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>

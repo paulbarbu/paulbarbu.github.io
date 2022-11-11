@@ -17,21 +17,16 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-13FB0RB5M0"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-151260211-1', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-13FB0RB5M0', { 'anonymize_ip': false });
 }
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-	
-
-
-  <link rel="canonical" href="https://paulbarbu.github.io/post/13-pin-socket-iso11446/" />
 
 </head>
 <body class="body">
@@ -53,7 +48,7 @@ if (!doNotTrack) {
 		<span class="menu__btn-title" tabindex="-1">Menu</span>
 	</button>
 	<ul class="menu__list">
-		<li class="menu__item">
+		<li class="menu__item menu__item--active">
 			<a class="menu__link" href="/post/">
 				
 				<span class="menu__text">Posts</span>
@@ -85,9 +80,12 @@ if (!doNotTrack) {
 	</span>
 </div></div>
 		</header>
-		<figure class="post__thumbnail">
-			<img src="/13pinsocket/13pin_socket.jpeg" alt="Testing a 13 Pin Towing Socket without a dedicated tester">
-		</figure>
+		
+	<figure class="post__thumbnail thumbnail">
+		
+		<img class="thumbnail__image" src="/13pinsocket/13pin_socket.jpeg" alt="Testing a 13 Pin Towing Socket without a dedicated tester">
+		
+	</figure>
 <div class="post__toc toc">
 	<div class="toc__title">Page content</div>
 	<div class="toc__menu">
@@ -105,8 +103,7 @@ if (!doNotTrack) {
   </ul>
 </nav>
 	</div>
-</div>
-<div class="content post__content clearfix">
+</div><div class="content post__content clearfix">
 			<p>How to test a 13 pin towing socket using a multimeter (i.e. without a caravan, trailer or a dedicated tester)</p>
 <h2 id="introduction">Introduction</h2>
 <p>Recently I installed a 13-pin socket <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> on my car and I wanted to make sure all its functions are working correctly.</p>
@@ -195,10 +192,10 @@ Well&hellip; this wasn&rsquo;t the case.</p>
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p>I have the MP5-DS-G13 from <a href="https://www.quasarelectronics.pl/en/towbar-wiring-kits-3/towbar-wiring-13-pin/mp4-ds-mp5-ds/mp5-ds-g13/">quasarelectronics.pl</a> - I&rsquo;m not affiliated <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>I have the MP5-DS-G13 from <a href="https://www.quasarelectronics.pl/en/towbar-wiring-kits-3/towbar-wiring-13-pin/mp4-ds-mp5-ds/mp5-ds-g13/">quasarelectronics.pl</a> - I&rsquo;m not affiliated&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p>This is 12V, but better safe than sorry! <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>This is 12V, but better safe than sorry!&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
@@ -244,7 +241,7 @@ Well&hellip; this wasn&rsquo;t the case.</p>
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2020 Barbu Paul - Gheorghe.
+			&copy; 2022 Barbu Paul - Gheorghe.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>

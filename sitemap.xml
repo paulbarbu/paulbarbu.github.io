@@ -1,96 +1,60 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://paulbarbu.github.io/post/</loc>
     <lastmod>2020-10-13T21:35:16+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://paulbarbu.github.io/about/</loc>
     <lastmod>2019-10-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://paulbarbu.github.io/</loc>
     <lastmod>2020-10-13T21:35:16+03:00</lastmod>
     <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://paulbarbu.github.io/categories/</loc>
     <lastmod>2020-10-13T21:35:16+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://paulbarbu.github.io/tags/less/</loc>
     <lastmod>2020-10-13T21:35:16+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://paulbarbu.github.io/post/less-tricks/</loc>
     <lastmod>2020-10-13T21:35:16+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://paulbarbu.github.io/tags/linux/</loc>
     <lastmod>2020-10-13T21:35:16+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://paulbarbu.github.io/categories/software/</loc>
     <lastmod>2020-10-13T21:35:16+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://paulbarbu.github.io/tags/</loc>
     <lastmod>2020-10-13T21:35:16+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://paulbarbu.github.io/tags/diy/</loc>
     <lastmod>2020-10-06T20:53:01+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://paulbarbu.github.io/tags/electronics/</loc>
     <lastmod>2020-10-06T20:53:01+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://paulbarbu.github.io/categories/hardware/</loc>
     <lastmod>2020-10-06T20:53:01+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://paulbarbu.github.io/post/13-pin-socket-iso11446/</loc>
     <lastmod>2020-10-06T20:53:01+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://paulbarbu.github.io/tags/awk/</loc>
     <lastmod>2019-10-24T21:23:00+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://paulbarbu.github.io/post/ss-listen-backlog-syn-cookies/</loc>
     <lastmod>2019-10-24T21:23:00+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://paulbarbu.github.io/tags/lsof/</loc>
     <lastmod>2019-10-24T21:23:00+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://paulbarbu.github.io/tags/tail/</loc>
     <lastmod>2019-10-24T21:23:00+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://paulbarbu.github.io/tags/tcp/</loc>
     <lastmod>2019-10-24T21:23:00+03:00</lastmod>
   </url>
-  
 </urlset>
