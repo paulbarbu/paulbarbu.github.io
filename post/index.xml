@@ -6,7 +6,18 @@
     <description>Recent content in Posts on Barbu Paul - Gheorghe</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 13 Oct 2020 21:35:16 +0300</lastBuildDate><atom:link href="https://paulbarbu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Jun 2023 21:18:49 +0300</lastBuildDate><atom:link href="https://paulbarbu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Long Feedback Loop</title>
+      <link>https://paulbarbu.github.io/post/the-long-feedback-loop/</link>
+      <pubDate>Mon, 26 Jun 2023 21:18:49 +0300</pubDate>
+      
+      <guid>https://paulbarbu.github.io/post/the-long-feedback-loop/</guid>
+      <description>I hate it.
+As programmers we are used to short feedback loops:
+write code compile (this step can be very short to non-existent for some technologies, see Vite HMR or Precompiled headers or Mold, a fast linker) optionally (if it compiles): play around with the app get feedback Arguably, the write code part is the longest in this chain/circle since it requires the most thought and preparation. The others, depending on the size of the project, are on the magnitude of seconds.</description>
+    </item>
+    
     <item>
       <title>Less Tricks For The Command Line</title>
       <link>https://paulbarbu.github.io/post/less-tricks/</link>
