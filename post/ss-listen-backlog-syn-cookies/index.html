@@ -106,8 +106,8 @@ if (!doNotTrack) {
 <p>For a TLDR about the Listen Backlog and SYN cookies: <a href="#explanation">Jump to the Listen Backlog and SYN cookies explanation</a></p>
 <p>Whether you want to investigate a half-opened/half-closed connection issue in Linux or you want to know if your application
 leaks sockets, then this command might be helpful:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ lsof -a -i TCP:5000 -p <span style="color:#ae81ff">3921</span> | tail -n +2 | awk <span style="color:#e6db74">&#39;BEGIN{listen=0;estab=0;other=0} /ESTABLISHED/{estab+=1} /LISTEN/{listen+=1} !/ESTABLISHED|LISTEN/{other+=1; print} END{printf(&#34;established=%s listen=%s other=%s\n&#34;, estab, listen, other)}&#39;</span>
-</span></span></code></pre></div><p>That command is pretty long, so from left to right we&rsquo;re piping the output of <code>lsof</code> into <code>tail</code>, then <code>awk</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ lsof -a -i TCP:5000 -p <span style="color:#ae81ff">3921</span> | tail -n +2 | awk <span style="color:#e6db74">&#39;BEGIN{listen=0;estab=0;other=0} /ESTABLISHED/{estab+=1} /LISTEN/{listen+=1} !/ESTABLISHED|LISTEN/{other+=1; print} END{printf(&#34;established=%s listen=%s other=%s\n&#34;, estab, listen, other)}&#39;</span>
+</code></pre></div><p>That command is pretty long, so from left to right we&rsquo;re piping the output of <code>lsof</code> into <code>tail</code>, then <code>awk</code>.</p>
 <p>Now generally you don&rsquo;t want to copy and paste commands from the web into your terminal, that&rsquo;s just bad practice.
 Let&rsquo;s try to understand what&rsquo;s going on with that command.</p>
 <p>First of all, in Linux, sockets are represented as file descriptors, or <em>fd</em> for short. Hence they count towards the
@@ -125,38 +125,38 @@ But I needed to have both of the filters active at the same time, TCP sockets on
 <p><code>tail -n +2</code></p>
 <p>This just gives me the tail-end of the piped input starting with the second line. The first line of the <code>lsof</code> output is the
 name of each column:</p>
-<pre tabindex="0"><code>COMMAND     PID   TID TASKCMD          USER   FD      TYPE             DEVICE    SIZE/OFF       NODE NAME
+<pre><code>COMMAND     PID   TID TASKCMD          USER   FD      TYPE             DEVICE    SIZE/OFF       NODE NAME
 </code></pre><p>So instead of the standard <code>tail</code> behaviour of getting the <em>last</em> n lines of output, I get the last lines of the output starting with line <em>+n</em>.</p>
 <h3 id="awk">awk</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>awk <span style="color:#e6db74">&#39;BEGIN{
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    listen=0;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    estab=0;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    other=0
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/ESTABLISHED/{
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    estab+=1
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/LISTEN/{
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    listen+=1
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">!/ESTABLISHED|LISTEN/{
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    other+=1;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    print
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">END{
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    printf(&#34;established=%s listen=%s other=%s\n&#34;, estab, listen, other)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}&#39;</span>
-</span></span></code></pre></div><p>On to the actual processing, I think this is the most advanced <code>awk</code> script I have written to date.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">awk <span style="color:#e6db74">&#39;BEGIN{
+</span><span style="color:#e6db74">    listen=0;
+</span><span style="color:#e6db74">    estab=0;
+</span><span style="color:#e6db74">    other=0
+</span><span style="color:#e6db74">}
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">/ESTABLISHED/{
+</span><span style="color:#e6db74">    estab+=1
+</span><span style="color:#e6db74">}
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">/LISTEN/{
+</span><span style="color:#e6db74">    listen+=1
+</span><span style="color:#e6db74">}
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">!/ESTABLISHED|LISTEN/{
+</span><span style="color:#e6db74">    other+=1;
+</span><span style="color:#e6db74">    print
+</span><span style="color:#e6db74">}
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">END{
+</span><span style="color:#e6db74">    printf(&#34;established=%s listen=%s other=%s\n&#34;, estab, listen, other)
+</span><span style="color:#e6db74">}&#39;</span>
+</code></pre></div><p>On to the actual processing, I think this is the most advanced <code>awk</code> script I have written to date.
 Nothing exceptional, really, but very useful to know the basics.</p>
 <p>So this application I was tasked with debugging was expecting a lot of connections on TCP port 5000, having done some extensive modifications to its <code>listen</code>/<code>accept</code> behaviour I quickly needed to know how many connections were established.</p>
 <p>The <code>awk</code> script does just that, it counts the sockets in <code>ESTABLISHED</code> state, <code>LISTEN</code> and a third category that includes
 all other states (e.g. <code>CLOSE_WAIT</code>).</p>
 <p>It does this by processing each output line of the <code>lsof ... | tail ...</code> command. I start from the fact that the socket state shows up in the <code>lsof</code> command in the last column, for example:</p>
-<pre tabindex="0"><code>COMMAND  PID USER   FD   TYPE  DEVICE SIZE/OFF    NODE NAME
+<pre><code>COMMAND  PID USER   FD   TYPE  DEVICE SIZE/OFF    NODE NAME
 nc      4752 paul    3u  IPv4 3053522      0t0     TCP *:39543 (LISTEN)
 </code></pre><p>Note the value of the <code>NAME</code> column: <code>*:39543 (LISTEN)</code> which has the format <code>address:port (state)</code></p>
 <p>The <code>awk</code> script sets up three variables in the <code>BEGIN</code> block (which is executed only once when the program starts.
@@ -213,23 +213,23 @@ And you&rsquo;d better leave SYN cookies enabled since that can cause you downti
 <li><a href="https://stackoverflow.com/questions/53580682/tcp-server-not-accepting-right-number-of-connections-issued-by-client-with-small">https://stackoverflow.com/questions/53580682/tcp-server-not-accepting-right-number-of-connections-issued-by-client-with-small</a></li>
 <li><a href="https://github.com/tokio-rs/tokio/issues/383">https://github.com/tokio-rs/tokio/issues/383</a></li>
 </ul>
-<div class="footnotes" role="doc-endnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1">
+<li id="fn:1" role="doc-endnote">
 <p><a href="https://cr.yp.to/syncookies.html">https://cr.yp.to/syncookies.html</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:2">
+<li id="fn:2" role="doc-endnote">
 <p><a href="https://blog.stephencleary.com/2009/05/detection-of-half-open-dropped.html">https://blog.stephencleary.com/2009/05/detection-of-half-open-dropped.html</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:3">
+<li id="fn:3" role="doc-endnote">
 <p><a href="http://veithen.io/2014/01/01/how-tcp-backlog-works-in-linux.html">http://veithen.io/2014/01/01/how-tcp-backlog-works-in-linux.html</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:4">
+<li id="fn:4" role="doc-endnote">
 <p><a href="https://www.evanjones.ca/tcp-stuck-connection-mystery.html">https://www.evanjones.ca/tcp-stuck-connection-mystery.html</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</div>
+</section>
 		</div>
 		<footer class="post__footer">
 			
@@ -275,7 +275,7 @@ And you&rsquo;d better leave SYN cookies enabled since that can cause you downti
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2023 Barbu Paul - Gheorghe.
+			&copy; 2024 Barbu Paul - Gheorghe.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>

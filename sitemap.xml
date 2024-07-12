@@ -3,18 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://paulbarbu.github.io/post/</loc>
-    <lastmod>2023-12-03T20:57:10+02:00</lastmod>
+    <lastmod>2024-07-03T17:39:38+03:00</lastmod>
   </url><url>
     <loc>https://paulbarbu.github.io/about/</loc>
     <lastmod>2019-10-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://paulbarbu.github.io/</loc>
-    <lastmod>2023-12-03T20:57:10+02:00</lastmod>
+    <lastmod>2024-07-03T17:39:38+03:00</lastmod>
+    <priority>0</priority>
   </url><url>
-    <loc>https://paulbarbu.github.io/tags/books/</loc>
-    <lastmod>2023-12-03T20:57:10+02:00</lastmod>
+    <loc>https://paulbarbu.github.io/post/360-feedback/</loc>
+    <lastmod>2024-07-03T17:39:38+03:00</lastmod>
   </url><url>
     <loc>https://paulbarbu.github.io/categories/</loc>
+    <lastmod>2024-07-03T17:39:38+03:00</lastmod>
+  </url><url>
+    <loc>https://paulbarbu.github.io/tags/feedback/</loc>
+    <lastmod>2024-07-03T17:39:38+03:00</lastmod>
+  </url><url>
+    <loc>https://paulbarbu.github.io/categories/management/</loc>
+    <lastmod>2024-07-03T17:39:38+03:00</lastmod>
+  </url><url>
+    <loc>https://paulbarbu.github.io/tags/</loc>
+    <lastmod>2024-07-03T17:39:38+03:00</lastmod>
+  </url><url>
+    <loc>https://paulbarbu.github.io/tags/books/</loc>
     <lastmod>2023-12-03T20:57:10+02:00</lastmod>
   </url><url>
     <loc>https://paulbarbu.github.io/post/chain-link-systems/</loc>
@@ -25,12 +38,6 @@
   </url><url>
     <loc>https://paulbarbu.github.io/categories/self-improvement/</loc>
     <lastmod>2023-12-03T20:57:10+02:00</lastmod>
-  </url><url>
-    <loc>https://paulbarbu.github.io/tags/</loc>
-    <lastmod>2023-12-03T20:57:10+02:00</lastmod>
-  </url><url>
-    <loc>https://paulbarbu.github.io/categories/management/</loc>
-    <lastmod>2023-06-26T21:18:49+03:00</lastmod>
   </url><url>
     <loc>https://paulbarbu.github.io/post/the-long-feedback-loop/</loc>
     <lastmod>2023-06-26T21:18:49+03:00</lastmod>

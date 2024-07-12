@@ -6,7 +6,7 @@
     <description>Recent content on Barbu Paul - Gheorghe</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Dec 2023 20:57:10 +0200</lastBuildDate><atom:link href="https://paulbarbu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jul 2024 17:39:38 +0300</lastBuildDate><atom:link href="https://paulbarbu.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
       <link>https://paulbarbu.github.io/about/</link>
@@ -17,6 +17,19 @@
 Basically I&amp;rsquo;m a programmer, so the content of this blog will be technical in most cases.
 The blog&amp;rsquo;s main purpose is to serve as an archive of things I&amp;rsquo;ve encountered and found useful or things I struggled with for future reference or just random thoughts of mine that I feel the need to document and share on the web.
 Feel free to skim through my posts.</description>
+    </item>
+    
+    <item>
+      <title>360 Feedback Surveys</title>
+      <link>https://paulbarbu.github.io/post/360-feedback/</link>
+      <pubDate>Wed, 03 Jul 2024 17:39:38 +0300</pubDate>
+      
+      <guid>https://paulbarbu.github.io/post/360-feedback/</guid>
+      <description>&lt;h1 id=&#34;about&#34;&gt;About&lt;/h1&gt;
+&lt;p&gt;Since I became a manager I have been reading about feedback gathering. All in an attempt to improve and try to have my team&amp;rsquo;s best interests in mind.&lt;/p&gt;
+&lt;p&gt;One of the tools I quickly found out about and implemented is: 360 feedback surveys. Also 1-1s, but that&amp;rsquo;s another topic for another time.&lt;/p&gt;
+&lt;p&gt;360 feedback surveys are short forms that should be shared with everybody you regularly interact with in the workplace and should ask questions so that you (the person running them) can get some actionable feedback on your activity and performance. Optionally anonymous in order to encourage honest (if not blunt at times), feedback.&lt;/p&gt;
+&lt;p&gt;This can come in handy if the team needs the psychological safety of typing some answers (instead of giving them live, in person) and maybe the safety of anonymity.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -36,7 +49,7 @@ Feel free to skim through my posts.</description>
       <guid>https://paulbarbu.github.io/post/the-long-feedback-loop/</guid>
       <description>I hate it.
 As programmers we are used to short feedback loops:
-write code compile (this step can be very short to non-existent for some technologies, see Vite HMR or Precompiled headers or Mold, a fast linker) optionally (if it compiles): play around with the app get feedback Arguably, the write code part is the longest in this chain/circle since it requires the most thought and preparation. The others, depending on the size of the project, are on the magnitude of seconds.</description>
+ write code compile (this step can be very short to non-existent for some technologies, see Vite HMR or Precompiled headers or Mold, a fast linker) optionally (if it compiles): play around with the app get feedback  Arguably, the write code part is the longest in this chain/circle since it requires the most thought and preparation. The others, depending on the size of the project, are on the magnitude of seconds.</description>
     </item>
     
     <item>
