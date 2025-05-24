@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Barbu Paul - Gheorghe</title>
+    <link>https://paulbarbu.github.io/post/</link>
+    <description>Recent content in Posts on Barbu Paul - Gheorghe</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 03 Jul 2024 17:39:38 +0300</lastBuildDate>
+    <atom:link href="https://paulbarbu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>360 Feedback Surveys</title>
+      <link>https://paulbarbu.github.io/post/360-feedback/</link>
+      <pubDate>Wed, 03 Jul 2024 17:39:38 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/post/360-feedback/</guid>
+      <description>&lt;h2 id=&#34;about&#34;&gt;About&lt;/h2&gt;&#xA;&lt;p&gt;Since I became a manager I have been reading about feedback gathering. All in an attempt to improve and try to have my team&amp;rsquo;s best interests in mind.&lt;/p&gt;&#xA;&lt;p&gt;One of the tools I quickly found out about and implemented is: 360 feedback surveys. Also 1-1s, but that&amp;rsquo;s another topic for another time.&lt;/p&gt;&#xA;&lt;p&gt;360 feedback surveys are short forms that should be shared with everybody you regularly interact with in the workplace and should ask questions so that you (the person running them) can get some actionable feedback on your activity and performance. Optionally anonymous in order to encourage honest (if not blunt at times), feedback.&lt;/p&gt;&#xA;&lt;p&gt;This can come in handy if the team needs the psychological safety of typing some answers (instead of giving them live, in person) and maybe the safety of anonymity.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Chain Link Systems</title>
+      <link>https://paulbarbu.github.io/post/chain-link-systems/</link>
+      <pubDate>Sun, 03 Dec 2023 20:57:10 +0200</pubDate>
+      <guid>https://paulbarbu.github.io/post/chain-link-systems/</guid>
+      <description>&lt;p&gt;In sixth grade, during the physics lesson, I learned that two objects cannot exist in the same space. Obvious, right?&#xA;Well, Mr. Bunău (the physics teacher) just made obvious something that everybody instinctively knows. I certainly knew this, but didn&amp;rsquo;t put it into words and it was amazing for me at the time what a simple concept, how obvious, yet I didn&amp;rsquo;t think to formulate it in to words.&#xA;This is why words mean things, putting concepts into words helps other people better understand your thoughts.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Long Feedback Loop</title>
+      <link>https://paulbarbu.github.io/post/the-long-feedback-loop/</link>
+      <pubDate>Mon, 26 Jun 2023 21:18:49 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/post/the-long-feedback-loop/</guid>
+      <description>&lt;p&gt;I hate it.&lt;/p&gt;&#xA;&lt;p&gt;As programmers we are used to &lt;em&gt;short&lt;/em&gt; feedback loops:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;write code&lt;/li&gt;&#xA;&lt;li&gt;compile (this step can be very short to non-existent for some technologies, see &lt;a href=&#34;https://vitejs.dev/guide/features.html#hot-module-replacement&#34;&gt;Vite HMR&lt;/a&gt; or &lt;a href=&#34;https://gcc.gnu.org/onlinedocs/gcc/Precompiled-Headers.html&#34;&gt;Precompiled headers&lt;/a&gt; or &lt;a href=&#34;https://github.com/rui314/mold&#34;&gt;Mold, a fast linker&lt;/a&gt;)&lt;/li&gt;&#xA;&lt;li&gt;optionally (if it compiles): play around with the app&lt;/li&gt;&#xA;&lt;li&gt;get feedback&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Arguably, the &lt;em&gt;write code&lt;/em&gt; part is the longest in this chain/circle since it requires the most thought and preparation. The others, depending on the size of the project, are on the magnitude of seconds.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Less Tricks For The Command Line</title>
+      <link>https://paulbarbu.github.io/post/less-tricks/</link>
+      <pubDate>Tue, 13 Oct 2020 21:35:16 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/post/less-tricks/</guid>
+      <description>&lt;p&gt;Less tricks for more productivity on the command line. Pun intended.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Testing a 13 Pin Towing Socket without a dedicated tester</title>
+      <link>https://paulbarbu.github.io/post/13-pin-socket-iso11446/</link>
+      <pubDate>Tue, 06 Oct 2020 20:53:01 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/post/13-pin-socket-iso11446/</guid>
+      <description>&lt;p&gt;How to test a 13 pin towing socket using a multimeter (i.e. without a caravan, trailer or a dedicated tester)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Linux TCP Socket States, the Listen Backlog and SYN cookies</title>
+      <link>https://paulbarbu.github.io/post/ss-listen-backlog-syn-cookies/</link>
+      <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/post/ss-listen-backlog-syn-cookies/</guid>
+      <description>&lt;p&gt;TCP socket debugging on GNU/Linux using a handful of basic tools: lsof, awk and tail.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

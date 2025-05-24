@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lsof on Barbu Paul - Gheorghe</title>
+    <link>https://paulbarbu.github.io/tags/lsof/</link>
+    <description>Recent content in Lsof on Barbu Paul - Gheorghe</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Oct 2019 21:23:00 +0300</lastBuildDate>
+    <atom:link href="https://paulbarbu.github.io/tags/lsof/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux TCP Socket States, the Listen Backlog and SYN cookies</title>
+      <link>https://paulbarbu.github.io/post/ss-listen-backlog-syn-cookies/</link>
+      <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/post/ss-listen-backlog-syn-cookies/</guid>
+      <description>&lt;p&gt;TCP socket debugging on GNU/Linux using a handful of basic tools: lsof, awk and tail.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

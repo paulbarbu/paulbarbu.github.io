@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Barbu Paul - Gheorghe</title>
+    <link>https://paulbarbu.github.io/tags/</link>
+    <description>Recent content in Tags on Barbu Paul - Gheorghe</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 03 Jul 2024 17:39:38 +0300</lastBuildDate>
+    <atom:link href="https://paulbarbu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Feedback</title>
+      <link>https://paulbarbu.github.io/tags/feedback/</link>
+      <pubDate>Wed, 03 Jul 2024 17:39:38 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/tags/feedback/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Books</title>
+      <link>https://paulbarbu.github.io/tags/books/</link>
+      <pubDate>Sun, 03 Dec 2023 20:57:10 +0200</pubDate>
+      <guid>https://paulbarbu.github.io/tags/books/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ideas</title>
+      <link>https://paulbarbu.github.io/tags/ideas/</link>
+      <pubDate>Sun, 03 Dec 2023 20:57:10 +0200</pubDate>
+      <guid>https://paulbarbu.github.io/tags/ideas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Less</title>
+      <link>https://paulbarbu.github.io/tags/less/</link>
+      <pubDate>Tue, 13 Oct 2020 21:35:16 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/tags/less/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://paulbarbu.github.io/tags/linux/</link>
+      <pubDate>Tue, 13 Oct 2020 21:35:16 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Diy</title>
+      <link>https://paulbarbu.github.io/tags/diy/</link>
+      <pubDate>Tue, 06 Oct 2020 20:53:01 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/tags/diy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Electronics</title>
+      <link>https://paulbarbu.github.io/tags/electronics/</link>
+      <pubDate>Tue, 06 Oct 2020 20:53:01 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/tags/electronics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Awk</title>
+      <link>https://paulbarbu.github.io/tags/awk/</link>
+      <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/tags/awk/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lsof</title>
+      <link>https://paulbarbu.github.io/tags/lsof/</link>
+      <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/tags/lsof/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tail</title>
+      <link>https://paulbarbu.github.io/tags/tail/</link>
+      <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/tags/tail/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tcp</title>
+      <link>https://paulbarbu.github.io/tags/tcp/</link>
+      <pubDate>Thu, 24 Oct 2019 21:23:00 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/tags/tcp/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

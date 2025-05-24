@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Testing a 13 Pin Towing Socket without a dedicated tester - Barbu Paul - Gheorghe</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="How to test a 13 pin towing socket using a multimeter (i.e. without a caravan, trailer or a dedicated tester)">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-13FB0RB5M0"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-13FB0RB5M0');
+        }
+      </script>
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="Barbu Paul - Gheorghe" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">Barbu Paul - Gheorghe</div>
+					
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item menu__item--active">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Posts</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Testing a 13 Pin Towing Socket without a dedicated tester</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2020-10-06T20:53:01&#43;03:00">October 06, 2020</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/hardware/" rel="category">Hardware</a>
+	</span>
+</div></div>
+		</header>
+		
+	<figure class="post__thumbnail thumbnail">
+		
+		<img class="thumbnail__image" src="/13pinsocket/13pin_socket.jpeg" alt="Testing a 13 Pin Towing Socket without a dedicated tester">
+		
+	</figure>
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#actually-testing-the-socket">Actually testing the socket</a>
+      <ul>
+        <li><a href="#usual-functionality-testing">Usual functionality testing</a></li>
+        <li><a href="#permanent-power-testing">Permanent power testing</a></li>
+        <li><a href="#trailer-detection">Trailer detection</a></li>
+        <li><a href="#switched-power-testing">Switched power testing</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<p>How to test a 13 pin towing socket using a multimeter (i.e. without a caravan, trailer or a dedicated tester)</p>
+<h2 id="introduction">Introduction</h2>
+<p>Recently I installed a 13-pin socket <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> on my car and I wanted to make sure all its functions are working correctly.</p>
+<p><img src="/13pinsocket/13pin_socket.jpeg" alt="A 13 pin socket"></p>
+<p>A 13 pin socket along basic brake, tail and indicator lights provides (as per the <a href="https://en.wikipedia.org/wiki/ISO_11446">ISO 11446</a> standard) the rear fog lights, reverse lights, a permanent 12V connection and a switched 12V connection (when the engine is running or just the power being switched on in the car).
+So a bit more than the simpler 7-pin variant. Not to mention that fact that some sockets also disable the rear ultrasonic parking sensors when a trailer is connected.</p>
+<p>These 13 pin sockets are (mostly) used for towing caravans since they need the permanent 12V connection for their accessories and use the switched connection for powering the fridge and charging a battery.
+They can also be used with trailers and tow-bar mounted bike racks that have fog and reverse lamps.</p>
+<p>If you have a trailer with a 7-pin plug, there are adapters from 13 to 7 pins as well.</p>
+<p>Owning none of the above and just having had the tow bar and 13 pin socket installed, I needed a way to check the socket was actually working according to spec (just for fun).</p>
+<p>If you own a caravan you can test all the connections by actually connecting it and using it, but here are the alternatives in case you don&rsquo;t:</p>
+<ol>
+<li>Buying a dedicated 13 pin socket tester: <img src="/13pinsocket/tester.jpg" alt="Off the shelf tester"></li>
+<li>Using a voltmeter and some light bulbs to simulate the caravan being connected.</li>
+</ol>
+<p>I&rsquo;m going to explore the second option, since it&rsquo;s the fun and informative one.</p>
+<h2 id="actually-testing-the-socket">Actually testing the socket</h2>
+<p>So we want to simulate the connection of a real trailer, but without the trailer, here&rsquo;s how we do it.</p>
+<p>Parts you&rsquo;ll need:</p>
+<ul>
+<li>multimeter (we need the voltmeter)</li>
+<li>a 10W (minimum) bulb, I used a 21 Watt one</li>
+<li>wires</li>
+</ul>
+<p><strong>Warning:</strong> Make sure you&rsquo;re not running your engine in an enclosed space, asphyxiation risk!</p>
+<p><strong>Warning:</strong> Make sure you&rsquo;re not reversing with the engine running and a person checking the lights right behind the car, injury risk!</p>
+<p><strong>Warning:</strong> Make sure you&rsquo;re not touching any live wires and to not touch them together, electrocution and fire risk! <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p><strong>Warning:</strong> Make sure you&rsquo;re not invalidating any warranty for your car or tow bar by connecting <em>stuff</em> to it.</p>
+<p>For reference, here&rsquo;s the pin layout of the socket specified by ISO 11446 (courtesy of Wikipedia):</p>
+<p><img src="/13pinsocket/pinlayout.png" alt="Pins layout of the socket"></p>
+<ul>
+<li><strong>Pin 1</strong> -  Left indicator</li>
+<li><strong>Pin 2</strong> -  Rear fog lamp</li>
+<li><strong>Pin 3</strong> -  Earth</li>
+<li><strong>Pin 4</strong> -  Right indicator</li>
+<li><strong>Pin 5</strong> -  Right tail lamp</li>
+<li><strong>Pin 6</strong> -  Brake lamp</li>
+<li><strong>Pin 7</strong> -  Left tail lamp</li>
+<li><strong>Pin 8</strong> -  Reverse lamp</li>
+<li><strong>Pin 9</strong> -  Permanent power</li>
+<li><strong>Pin 10</strong> - Switched supply (for fridge)</li>
+<li><strong>Pin 11</strong> - Earth for pin 10</li>
+<li><strong>Pin 12</strong> - Trailer Presence Detection / Unused</li>
+<li><strong>Pin 13</strong> - Earth for pin 9</li>
+</ul>
+<p>So <strong>pin 3</strong> is the ground pin for <strong>pins 1-8</strong>.</p>
+<p><strong>Pin 9</strong> has its ground at <strong>pin 13</strong> and <strong>pin 10</strong> has ground at <strong>pin 11</strong>.</p>
+<h3 id="usual-functionality-testing">Usual functionality testing</h3>
+<p>Testing pins <strong>1</strong> through <strong>8</strong> is simple:</p>
+<ol>
+<li>Switch the voltmeter to 20V (or autoscaling) continuous current.</li>
+<li>Connect the ground of the voltmeter to <strong>pin 3</strong>.</li>
+<li>Signal a turn or press the brakes or turn on your lights and connect the red probe of the voltmeter to the equivalent pin of the tow bar socket.</li>
+<li>The voltmeter should read around 12 volts, maybe more, depending on your car battery.</li>
+</ol>
+<p>If the voltmeter shows 0 or close to 0 volts, something is wrong.
+For the turn indicators, the voltmeter may not show exact readings since the voltage goes up and down with the signal, but it should change at the same rate.</p>
+<p>Please note that for some of these to work you may have put your keys in the ignition and turn them to &ldquo;ON&rdquo;, for example the fog lights and the reverse lights need this.</p>
+<h3 id="permanent-power-testing">Permanent power testing</h3>
+<p>This is simple: regardless of the state of your engine/ignition, connecting the voltmeter (set on max 20V)  between pins <strong>9</strong> and <strong>13</strong> should read 12V or above.</p>
+<h3 id="trailer-detection">Trailer detection</h3>
+<p>Depending on the socket and module you have installed <strong>pin 12</strong> may or may not be the trailer detection pin, if it is, when connecting the trailer this pin will be connected to ground (<strong>pin 3</strong>).</p>
+<p>On my particular installation (the MP5-DS-G13 module) the trailer detection is done by checking if a big enough load is connected between <strong>pin 6</strong> and <strong>pin 3</strong>, which is equivalent to having working brakes on your trailer/caravan. Which makes more sense. If you have brake lights on your trailer, the system knows it&rsquo;s connected, otherwise <strong>pin 12</strong> might not be grounded with all trailer manufacturers.
+This is a cool trick and if I&rsquo;m not mistaken provides compatibility even if you use a 13-7 pin adapter. This is cool since any trailer will have brake lights.</p>
+<p>Now, make sure you connect a big enough load, I first connected a 5W bulb with nothing happening. After I switched to a 21W bulb the &ldquo;trailer&rdquo; was detected by the system.</p>
+<p><img src="/13pinsocket/21wattbulb.jpg" alt="21 Watt bulb"></p>
+<p>I used a car bulb from my spare set (which is mandatory to have in some European countries) to which I soldered a pair of wires to be able to plug them in the pins <strong>6</strong> and <strong>3</strong>.</p>
+<h4 id="the-rear-parking-sensors-get-disabled">The rear parking sensors get disabled</h4>
+<p>If you connect this successfully and try to back up the car, your parking sensors will be switched off. This is useful since there is a permanent obstacle behind you and the sensors get annoying. Of course this doesn&rsquo;t apply to adaptive parking sensors (which I hear can learn if there is a permanent obstacle and turn down the beeping).</p>
+<h4 id="independent-control-of-the-cars-and-the-trailers-fog-lights">Independent control of the car&rsquo;s and the trailer&rsquo;s fog lights</h4>
+<p>Also another cool feature of the module I got installed is that if I switch the fog lamps on and off I can control whether the fog lamps of the car and the trailer are on or only the fog lamps of the trailer. This is in order to avoid being blinded by the car&rsquo;s fog lamp reflection off of the trailer.
+So:</p>
+<ul>
+<li>turn on: both car&rsquo;s and trailer&rsquo;s fog lamps are on;</li>
+<li>turn off: car&rsquo;s lamps are off, trailer&rsquo;s fog lamps are on - this avoid blinding you;</li>
+<li>turn on: both car&rsquo;s and trailer&rsquo;s fog lamps are on;</li>
+<li>turn off: both car&rsquo;s and trailer&rsquo;s fog lamps are off.</li>
+</ul>
+<h3 id="switched-power-testing">Switched power testing</h3>
+<p>This was the trickiest for me. According to many online sources <strong>pin 10</strong> should come alive when the ignition is switched on or the engine is running.
+Well&hellip; this wasn&rsquo;t the case.</p>
+<p>Some sources say that the engine has to actually run for some time in order to charge the battery. Others say that you have to turn off you auto start/stop system.</p>
+<p>It turns out these were all wrong for my module. The trick was the above <em>trailer detection</em> point. After I connected a 21 Watt bulb (as if there were a trailer connected) the fridge pin (<strong>10</strong>) came on and between it and <strong>pin 11</strong> I had a potential difference reading of 12V on the voltmeter when the ignition was switched on. Success, all pins are working</p>
+<p>Since the permanent power pin works even if a trailer is not connected. I somehow expected the switched power pin to work the same way. Just switch on the ignition and the pin should work, but I was wrong, a trailer has to be connected. This is what made me actually write this post, so that others will know to properly simulate a trailer connection.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>I have the MP5-DS-G13 from <a href="https://www.quasarelectronics.pl/en/towbar-wiring-kits-3/towbar-wiring-13-pin/mp4-ds-mp5-ds/mp5-ds-g13/">quasarelectronics.pl</a> - I&rsquo;m not affiliated&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>This is 12V, but better safe than sorry!&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/diy/" rel="tag">diy</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/electronics/" rel="tag">electronics</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/ss-listen-backlog-syn-cookies/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Linux TCP Socket States, the Listen Backlog and SYN cookies</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/post/less-tricks/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Less Tricks For The Command Line</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2025 Barbu Paul - Gheorghe.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

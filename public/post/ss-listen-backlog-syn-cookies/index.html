@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Linux TCP Socket States, the Listen Backlog and SYN cookies - Barbu Paul - Gheorghe</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="TCP socket debugging on GNU/Linux using a handful of basic tools: lsof, awk and tail.">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-13FB0RB5M0"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-13FB0RB5M0');
+        }
+      </script>
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="Barbu Paul - Gheorghe" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">Barbu Paul - Gheorghe</div>
+					
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item menu__item--active">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Posts</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Linux TCP Socket States, the Listen Backlog and SYN cookies</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2019-10-24T21:23:00&#43;03:00">October 24, 2019</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/software/" rel="category">Software</a>
+	</span>
+</div></div>
+		</header>
+		
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#counting-socket-states">Counting socket states</a></li>
+        <li><a href="#lsof">lsof</a></li>
+        <li><a href="#tail">tail</a></li>
+        <li><a href="#awk">awk</a></li>
+        <li><a href="#improvements">Improvements</a></li>
+        <li><a href="#interpreting-the-output-and-investigating-the-half-openedclosed-situation">Interpreting the output and investigating the half-opened/closed situation</a></li>
+        <li><a href="#further-information">Further information</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<p>TCP socket debugging on GNU/Linux using a handful of basic tools: lsof, awk and tail.</p>
+<h3 id="counting-socket-states">Counting socket states</h3>
+<p>For a TLDR about the Listen Backlog and SYN cookies: <a href="#explanation">Jump to the Listen Backlog and SYN cookies explanation</a></p>
+<p>Whether you want to investigate a half-opened/half-closed connection issue in Linux or you want to know if your application
+leaks sockets, then this command might be helpful:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ lsof -a -i TCP:5000 -p <span style="color:#ae81ff">3921</span> | tail -n +2 | awk <span style="color:#e6db74">&#39;BEGIN{listen=0;estab=0;other=0} /ESTABLISHED/{estab+=1} /LISTEN/{listen+=1} !/ESTABLISHED|LISTEN/{other+=1; print} END{printf(&#34;established=%s listen=%s other=%s\n&#34;, estab, listen, other)}&#39;</span>
+</span></span></code></pre></div><p>That command is pretty long, so from left to right we&rsquo;re piping the output of <code>lsof</code> into <code>tail</code>, then <code>awk</code>.</p>
+<p>Now generally you don&rsquo;t want to copy and paste commands from the web into your terminal, that&rsquo;s just bad practice.
+Let&rsquo;s try to understand what&rsquo;s going on with that command.</p>
+<p>First of all, in Linux, sockets are represented as file descriptors, or <em>fd</em> for short. Hence they count towards the
+open files collection of a process.
+In Linux, we use the <code>lsof</code> command to list the open files in the whole system or belonging to a certain process.</p>
+<h3 id="lsof">lsof</h3>
+<p><code>lsof -a -i TCP:5000 -p 3921</code></p>
+<p>In this particular problem I was interested to see whether the process had any TCP connections established or not.
+The <code>lsof</code> command practically needed to tell me whether my process, indicated to it by it&rsquo;s process ID via <code>-p 3921</code>
+had any TCP open file descriptors (i.e. sockets) on port 5000
+(since this is the port I was expecting the connections to happen on): <code>-i TCP:5000</code>.
+But I needed to have both of the filters active at the same time, TCP sockets on port 5000 belonging to PID 3921, not just any process on the system.</p>
+<p>If you run only this command and expect thousands of connections to your application, reading the output line-by-line will not be very useful. We need to further process it. Hence we&rsquo;re going to pipe to <code>tail</code> first.</p>
+<h3 id="tail">tail</h3>
+<p><code>tail -n +2</code></p>
+<p>This just gives me the tail-end of the piped input starting with the second line. The first line of the <code>lsof</code> output is the
+name of each column:</p>
+<pre tabindex="0"><code>COMMAND     PID   TID TASKCMD          USER   FD      TYPE             DEVICE    SIZE/OFF       NODE NAME
+</code></pre><p>So instead of the standard <code>tail</code> behaviour of getting the <em>last</em> n lines of output, I get the last lines of the output starting with line <em>+n</em>.</p>
+<h3 id="awk">awk</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>awk <span style="color:#e6db74">&#39;BEGIN{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    listen=0;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    estab=0;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    other=0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/ESTABLISHED/{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    estab+=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/LISTEN/{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    listen+=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">!/ESTABLISHED|LISTEN/{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    other+=1;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    print
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">END{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    printf(&#34;established=%s listen=%s other=%s\n&#34;, estab, listen, other)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}&#39;</span>
+</span></span></code></pre></div><p>On to the actual processing, I think this is the most advanced <code>awk</code> script I have written to date.
+Nothing exceptional, really, but very useful to know the basics.</p>
+<p>So this application I was tasked with debugging was expecting a lot of connections on TCP port 5000, having done some extensive modifications to its <code>listen</code>/<code>accept</code> behaviour I quickly needed to know how many connections were established.</p>
+<p>The <code>awk</code> script does just that, it counts the sockets in <code>ESTABLISHED</code> state, <code>LISTEN</code> and a third category that includes
+all other states (e.g. <code>CLOSE_WAIT</code>).</p>
+<p>It does this by processing each output line of the <code>lsof ... | tail ...</code> command. I start from the fact that the socket state shows up in the <code>lsof</code> command in the last column, for example:</p>
+<pre tabindex="0"><code>COMMAND  PID USER   FD   TYPE  DEVICE SIZE/OFF    NODE NAME
+nc      4752 paul    3u  IPv4 3053522      0t0     TCP *:39543 (LISTEN)
+</code></pre><p>Note the value of the <code>NAME</code> column: <code>*:39543 (LISTEN)</code> which has the format <code>address:port (state)</code></p>
+<p>The <code>awk</code> script sets up three variables in the <code>BEGIN</code> block (which is executed only once when the program starts.
+Then the following blocks are responsible for actually incrementing the counter we have initialized at the beginning:</p>
+<ul>
+<li><code>/ESTABLISHED/</code>: counts the number of established sockets;</li>
+<li><code>/LISTEN/</code>: counts the number of listening sockets;</li>
+<li><code>!/ESTABLISHED|LISTEN/</code>: counts the number of sockets in a state OTHER than the two above. It also has the side effect of printing the current line we&rsquo;re processing, since I want to see its state.</li>
+</ul>
+<p>Note that the regular expressions are very basic and are written based on the assumption that the <code>NAME</code> column of the <code>lsof</code> command contains exactly the socket state and one line of its output only contains it once, only on that column.</p>
+<p>Finally the <code>END</code> block prints the counts of the socket states computed earlier, this is similar to C&rsquo;s<code>printf</code>.</p>
+<h3 id="improvements">Improvements</h3>
+<ul>
+<li>for the PID of a process you can use <code>pidof process-name-here</code>, but this won&rsquo;t work if you have multiple instances of the same application running and you&rsquo;ll have to manually select the one you need;</li>
+<li><code>lsof -F</code> for parsing the output by other programs;</li>
+<li>the <code>awk</code> script could be improved to count all the possible sockets states without much dependence on the socket state exactly appearing only on the last column of the <code>lsof</code> output</li>
+</ul>
+<p><a name="explanation"></a></p>
+<h3 id="interpreting-the-output-and-investigating-the-half-openedclosed-situation">Interpreting the output and investigating the half-opened/closed situation</h3>
+<p>If you run this command for both the server and the client, then you could go reasoning about half-opened or closed connections.
+For example if you see that you have 5000 established connections on the client and 1000 established connections on the server, that means that some of the connections are half-opened.</p>
+<p>As to why a connection may end up half-opened/closed, that&rsquo;s a more involved discussion and I don&rsquo;t claim to have become an expert, but I have gained some insight into how tricky TCP is.</p>
+<p>Two related potential causes (leaving out crashed, reboots and cable disconnects):</p>
+<ul>
+<li>You only <code>accept</code> connections when the application can handle them. Try instead <code>accept</code>ing connections all the time in a separate thread and save the client&rsquo;s socket in a queue for later processing if the application is at full processing capacity.
+By always <code>accept</code>ing connections your backlog queue will not fill up.</li>
+<li>Somewhat related to the first point is the fact that your <em>backlog</em> argument to <code>listen</code> is too small, hence the queue fills up.</li>
+</ul>
+<p>The <em>backlog</em> queue filling up is bad since then you may, somehow artificially, get to a SYN flood where the opening handshake
+cannot be finalized. The server sends a <code>SYN/ACK</code> segment (in response to the client&rsquo;s <code>SYN</code>) with a cookie value for the <em>sequence number</em> <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, but it may never receive the last <code>ACK</code> back from the client.
+That happens when the client thinks the connection is already established since it sent an ACK, but with the wrong sequence number. Because TCP is not actively checking the status of a connection (it is an &ldquo;idle&rdquo; protocol<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>) and in my scenario we were expecting data to first come from the server to the client, the client was naively waiting for the initialization data from the server, not knowing the server is also expecting to receive from
+the client an <code>ACK</code> segment with a proper sequence number set to the cookie&rsquo;s value.
+So this can cause a network level &ldquo;deadlock&rdquo;.
+The only way out of it is by checking the connection&rsquo;s state at the application level (via a heartbeat protocol) or by having the client initiate the data transmission (in which case it would know that the connection is incomplete) <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.</p>
+<p>There are a lot of factors that need to line up for you to get into this kind of situation, but they sometimes do <sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>
+and at that point you&rsquo;d better try not to fiddle with the backlog parameter for <code>listen</code>, it&rsquo;s best to set it at <code>SOMAXCONN</code>.
+And you&rsquo;d better leave SYN cookies enabled since that can cause you downtime further down the line with very little cost on the part of a potential attacker.</p>
+<p>Ideally, you&rsquo;d have to fix your application, either by quickly <code>accept</code>ing connections and placing them into a queue for future processing or by having the client send the first data through the socket, instead of the server, or if that&rsquo;s not possible by implementing a heartbeat protocol into your application protocol (which provides a host of problems of its own, starting with the fact the the client may have to first send data, something which led us to this solution).</p>
+<h3 id="further-information">Further information</h3>
+<p>As always, you can find out more information about the above commands by running <code>man lsof</code>, <code>man tail</code>, <code>man awk</code>.</p>
+<p>There are alternatives to <code>lsof</code> like <code>netstat</code> and <code>ss</code> which can be used in a similar way.</p>
+<p>Apart from the main articles I&rsquo;ve read:</p>
+<ul>
+<li>D. J. Bernstein, the inventor of SYN cookies about them: <a href="https://cr.yp.to/syncookies.html">https://cr.yp.to/syncookies.html</a></li>
+<li>About the <em>backlog</em> parameter for <code>listen</code>, complete with explanations and with kernel code: <a href="http://veithen.io/2014/01/01/how-tcp-backlog-works-in-linux.html">http://veithen.io/2014/01/01/how-tcp-backlog-works-in-linux.html</a></li>
+<li>High level view of the half-opened connection problem: <a href="https://blog.stephencleary.com/2009/05/detection-of-half-open-dropped.html">https://blog.stephencleary.com/2009/05/detection-of-half-open-dropped.html</a></li>
+<li>MySQL debugging &ldquo;war&rdquo; story that prompted me to write the <code>lsof | tail | awk</code> command in the first place: <a href="https://www.evanjones.ca/tcp-stuck-connection-mystery.html">https://www.evanjones.ca/tcp-stuck-connection-mystery.html</a></li>
+</ul>
+<p>These links may also be of help:</p>
+<ul>
+<li><a href="https://www.giac.org/paper/gsec/2013/syn-cookies-exploration/103486">https://www.giac.org/paper/gsec/2013/syn-cookies-exploration/103486</a></li>
+<li><a href="https://stackoverflow.com/questions/15285008/regarding-tcp-syn-flood-why-is-half-open-connections-worse-than-established-con">https://stackoverflow.com/questions/15285008/regarding-tcp-syn-flood-why-is-half-open-connections-worse-than-established-con</a></li>
+<li><a href="https://stackoverflow.com/questions/39210043/tcp-half-open-connections-winsock-listen-accept-behavior">https://stackoverflow.com/questions/39210043/tcp-half-open-connections-winsock-listen-accept-behavior</a></li>
+<li><a href="https://stackoverflow.com/questions/53580682/tcp-server-not-accepting-right-number-of-connections-issued-by-client-with-small">https://stackoverflow.com/questions/53580682/tcp-server-not-accepting-right-number-of-connections-issued-by-client-with-small</a></li>
+<li><a href="https://github.com/tokio-rs/tokio/issues/383">https://github.com/tokio-rs/tokio/issues/383</a></li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://cr.yp.to/syncookies.html">https://cr.yp.to/syncookies.html</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://blog.stephencleary.com/2009/05/detection-of-half-open-dropped.html">https://blog.stephencleary.com/2009/05/detection-of-half-open-dropped.html</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="http://veithen.io/2014/01/01/how-tcp-backlog-works-in-linux.html">http://veithen.io/2014/01/01/how-tcp-backlog-works-in-linux.html</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://www.evanjones.ca/tcp-stuck-connection-mystery.html">https://www.evanjones.ca/tcp-stuck-connection-mystery.html</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/lsof/" rel="tag">lsof</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/awk/" rel="tag">awk</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/tail/" rel="tag">tail</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/tcp/" rel="tag">tcp</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/linux/" rel="tag">linux</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/post/13-pin-socket-iso11446/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Testing a 13 Pin Towing Socket without a dedicated tester</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2025 Barbu Paul - Gheorghe.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

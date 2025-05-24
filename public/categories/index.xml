@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Barbu Paul - Gheorghe</title>
+    <link>https://paulbarbu.github.io/categories/</link>
+    <description>Recent content in Categories on Barbu Paul - Gheorghe</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 03 Jul 2024 17:39:38 +0300</lastBuildDate>
+    <atom:link href="https://paulbarbu.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Management</title>
+      <link>https://paulbarbu.github.io/categories/management/</link>
+      <pubDate>Wed, 03 Jul 2024 17:39:38 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/categories/management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Self Improvement</title>
+      <link>https://paulbarbu.github.io/categories/self-improvement/</link>
+      <pubDate>Sun, 03 Dec 2023 20:57:10 +0200</pubDate>
+      <guid>https://paulbarbu.github.io/categories/self-improvement/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Software</title>
+      <link>https://paulbarbu.github.io/categories/software/</link>
+      <pubDate>Tue, 13 Oct 2020 21:35:16 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/categories/software/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hardware</title>
+      <link>https://paulbarbu.github.io/categories/hardware/</link>
+      <pubDate>Tue, 06 Oct 2020 20:53:01 +0300</pubDate>
+      <guid>https://paulbarbu.github.io/categories/hardware/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
